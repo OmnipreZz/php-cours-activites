@@ -12,32 +12,47 @@
         $students = ['Hulk', 'Iron Man', 'Wonder Woman', 'Black Widow', 'Malicia'];
      ?>
      <ul>
-       <?php //display the students here ?>
+       <?php foreach ($students as $value) {
+         echo "<li>".$value."</li>";
+       } ?>
      </ul>
      <hr>
      <h1>Date du jour</h1>
      <form>
 
        <!-- Instructions : Créer la liste de jour (en chiffres), de mois (en chiffres) et d'année en PHP. -->
+
        <label for="day">Day</label>
-       <select  name="day"><?php //list of day ?></select>
+       <select  name="day"><?php for ($i = 1; $i < 31; $i++) {echo "<option>".$i."</option>";} ?></select>
        <label for="month">Month</label>
-       <select  name="month"><?php //list of month ?></select>
+       <select  name="month"><?php for ($i = 1; $i < 12; $i++) {echo "<option>".$i."</option>";} ?></select>
        <label for="year">Year</label>
-       <select  name="year"><?php //list of year ?></select>
+       <select  name="year"><?php for ($i = 1950; $i <= 2018; $i++) {echo "<option>".$i."</option>";} ?></select>
      </form>
      <hr>
      <!-- Instruction : Afficher ce bloc que si dans l'URL il y'a une variable sexe et que ça valeur vaut "fille" -->
-     <p>
-       Je suis une fille
-     </p>
+      <?php
+      if (isset($_GET['sex'])) {
+        if ($_GET['sex'] = "fille") {
+        echo "<p>Je suis une fille</p>";
+        }
+      }
+      ?>
      <!-- Instruction : Afficher ce bloc que si dans l'URL il y'a une variable sexe et que ça valeur vaut "garçon" -->
-     <p>
-       Je suis un garçon
-     </p>
+      <?php
+      if (isset($_GET['sex'])) {
+        if ($_GET['sex'] = "garçon") {
+        echo "<p>Je suis un garçon</p>";
+        }
+      }
+      ?>
      <!-- Instruction : Afficher ce bloc dans les autres cas -->
-     <p>
-       Je suis indéfini
-     </p>
+      <?php
+      if (isset($_GET['sex'])) {
+        if ($_GET['sex'] != "fille" && $_GET['sex'] != "garçon") {
+        echo "<p>Je suis indéfini</p>";
+        }
+      }
+      ?>
   </body>
 </html>
